@@ -8,8 +8,9 @@ import pyglet
 
 recog = spr.Recognizer()
 # code to viwe the microphone index and select sys default
-# for index, name in enumerate(spr.Microphone.list_microphone_names()):
-#     print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
+
+for index, name in enumerate(spr.Microphone.list_microphone_names()):
+    print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
 mc = spr.Microphone(device_index=6)
 pyglet.options["audio"] = ("pulse",)
 def speak(text: str, lang: str="en"):
@@ -78,7 +79,7 @@ while 'stop' not in query:
             print('Alexis: Please be more clear')
             speak('Please be more clear')
             pass
-    query = input_ask("To stop, say Stop! or continue as above.")
+    query = input_ask("To stop, say Stop! or continue as above." )
     
 print("Alexis: Good Bye cowpoke!")
 speak('Good bye Cowpoke!')
